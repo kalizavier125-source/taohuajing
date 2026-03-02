@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: taohuajing-api
+    runtime: node
+    repo: https://github.com/kalizavier125-source/taohuajing
+    branch: main
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: starter
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: QWEN_API_KEY
+        sync: false
+      - key: QWEN_BASE_URL
+        value: https://dashscope.aliyuncs.com/compatible-mode/v1
+      - key: FRONTEND_URL
+        value: https://frontend-6c72iakn4-kkk200003s-projects.vercel.app
