@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #FF6B9D 0%, #FF4081 100%);
+  --secondary-gradient: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(180deg, #FFF5F7 0%, #FFFFFF 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF0F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6B9D;
+  border-radius: 3px;
+}
+
+/* 评分圆环动画 */
+@keyframes circle-progress {
+  0% {
+    stroke-dashoffset: 440;
+  }
+  100% {
+    stroke-dashoffset: var(--progress-offset);
+  }
+}
+
+.score-circle {
+  transform: rotate(-90deg);
+}
+
+.score-circle .progress {
+  animation: circle-progress 1.5s ease-out forwards;
+}
+
+/* 标签样式 */
+.tag-gradient {
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF4081 100%);
+}
+
+/* 卡片阴影 */
+.card-shadow {
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15);
+}
+
+/* 按钮渐变 */
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF4081 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 输入框样式 */
+.input-activate {
+  border: 2px solid #FFE4EC;
+  transition: all 0.3s ease;
+}
+
+.input-activate:focus {
+  border-color: #FF6B9D;
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+}
+
+/* 上传区域 */
+.upload-zone {
+  border: 2px dashed #FFC4D6;
+  background: linear-gradient(135deg, #FFF0F5 0%, #FFF5F7 100%);
+  transition: all 0.3s ease;
+}
+
+.upload-zone:hover {
+  border-color: #FF6B9D;
+  background: linear-gradient(135deg, #FFE4EC 0%, #FFF0F5 100%);
+}
+
+.upload-zone.drag-active {
+  border-color: #FF4081;
+  background: linear-gradient(135deg, #FFC4D6 0%, #FFE4EC 100%);
+}
+
+/* 报告长图样式 */
+.report-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* 分数展示 */
+.score-display {
+  background: linear-gradient(135deg, #FF6B9D 0%, #FF4081 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 警告标识 */
+.warning-flag {
+  background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+  border-left: 4px solid #EF4444;
+}
+
+/* 建议卡片 */
+.suggestion-card {
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  border-left: 4px solid #38BDF8;
+}
+
+/* 移动端适配 */
+@media (max-width: 640px) {
+  .container-mobile {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* 打印样式（用于生成分享图） */
+@media print {
+  body {
+    background: white;
+  }
+  .no-print {
+    display: none;
+  }
+}
